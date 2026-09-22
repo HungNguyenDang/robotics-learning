@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hung's Robotics Lab</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Learning</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <header class="topbar">
+    <a class="brand" href="#">robotics-learning</a>
 
-    <h1>🤖 Hung's Robotics Lab</h1>
+    <nav class="nav">
+      <a class="nav-link active" href="#">Home</a>
+      <a class="nav-link" href="#">Courses</a>
+      <a class="nav-link" href="#">Blog</a>
+    </nav>
 
-    <p>
-        My journey learning robotics, programming, AI,
-        and open-source technology.
-    </p>
+    <div class="actions">
+      <button class="small-button" type="button">VI</button>
+      <button class="small-button" type="button">☾ dark</button>
+    </div>
+  </header>
 
-    <h2>What I'm Learning</h2>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow"></div>
+        <h1></h1>
+        <p class="hero-text"></p>
+        <div class="hero-buttons">
+          <a class="primary-button" href="#courses"></a>
+          <a class="secondary-button" href="#courses"></a>
+        </div>
+      </div>
+    </section>
 
-    <ul>
-        <li>ROS 2</li>
-        <li>Python</li>
-        <li>C++</li>
-        <li>MuJoCo</li>
-        <li>Isaac Sim</li>
-        <li>Robotic Manipulation</li>
-    </ul>
+    <section id="courses" class="courses-section">
+      <div class="section-label">COURSES</div>
 
-    <h2>Projects</h2>
+      <div class="course-grid">
+        <article class="course-card"></article>
+        <article class="course-card"></article>
+        <article class="course-card empty-card"></article>
+      </div>
+    </section>
+  </main>
 
-    <ul>
-        <li>Robotic Hand</li>
-        <li>Humanoid Robot</li>
-        <li>ROS 2 Projects</li>
-    </ul>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
