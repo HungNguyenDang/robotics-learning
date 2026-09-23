@@ -1,207 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,600&display=swap');
 
 :root {
-  --bg: #090c10;
-  --topbar: #0b0f14;
-  --card: #11151a;
-  --border: #27313d;
-  --text: #edf0f6;
-  --muted: #9aa6b6;
-  --accent: #54c5df;
+  --bg:#090c10; --topbar:#0b0f14; --card:#11151a; --border:#27313d;
+  --text:#edf0f6; --muted:#9aa6b6; --accent:#54c5df; --button-bg:#10151b;
+  --hero-glow:rgba(40,91,108,.10);
 }
-
-* {
-  box-sizing: border-box;
+html.light {
+  --bg:#f5f7fa; --topbar:#fff; --card:#fff; --border:#d8dee7;
+  --text:#18202b; --muted:#5d6878; --accent:#149fc1; --button-bg:#fff;
+  --hero-glow:rgba(84,197,223,.12);
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 72% 18%, rgba(40, 91, 108, 0.10), transparent 32%),
-    var(--bg);
-  color: var(--text);
-  font-family: Inter, system-ui, sans-serif;
+  margin:0; min-height:100vh; color:var(--text);
+  background:radial-gradient(circle at 72% 18%,var(--hero-glow),transparent 32%),var(--bg);
+  font-family:Inter,system-ui,sans-serif;
+  transition:background-color .25s,color .25s;
 }
-
 .topbar {
-  height: 49px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 0 28px 0 9px;
-  background: rgba(11, 15, 20, 0.96);
-  border-bottom: 1px solid #202833;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  height:49px; display:flex; align-items:center; gap:18px; padding:0 28px 0 9px;
+  background:var(--topbar); border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:10;
 }
-
 .brand {
-  color: #dfe6ee;
-  text-decoration: none;
-  font-family: "DM Mono", monospace;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-  white-space: nowrap;
+  color:var(--text); text-decoration:none; font:600 14px "DM Mono",monospace;
+  letter-spacing:-.3px; white-space:nowrap;
 }
-
-.brand::after {
-  content: "";
-  color: var(--accent);
+.nav { display:flex; align-items:center; gap:2px; }
+.nav-link,.small-button {
+  color:var(--muted); background:transparent; border:1px solid transparent;
+  border-radius:8px; font:500 13px Inter,sans-serif; text-decoration:none;
 }
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.nav-link,
+.nav-link { padding:7px 11px; }
+.nav-link.active { color:var(--text); border-color:var(--border); background:var(--button-bg); }
+.actions { margin-left:auto; display:flex; gap:8px; }
 .small-button {
-  color: #8e9aaa;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font: 500 13px Inter, sans-serif;
-  text-decoration: none;
+  padding:7px 10px; border-color:var(--border); background:var(--button-bg);
+  color:var(--text); cursor:pointer;
 }
-
-.nav-link {
-  padding: 7px 11px;
-}
-
-.nav-link.active {
-  color: #edf0f6;
-  border-color: #303b49;
-  background: #151a21;
-}
-
-.actions {
-  margin-left: auto;
-  display: flex;
-  gap: 8px;
-}
-
-.small-button {
-  padding: 7px 10px;
-  border-color: #303b49;
-  background: #11161d;
-  cursor: pointer;
-}
-
-main {
-  min-height: calc(100vh - 49px);
-}
-
-.hero {
-  padding: 68px 9px 56px;
-}
-
-.hero-inner {
-  max-width: 720px;
-}
-
-.eyebrow {
-  width: 140px;
-  height: 12px;
-  margin-bottom: 17px;
-}
-
+.small-button:hover { border-color:var(--accent); }
+.hero { padding:68px 9px 56px; }
+.hero-inner { max-width:720px; }
+.eyebrow { min-height:12px; margin-bottom:17px; color:var(--accent); font:500 11px "DM Mono",monospace; letter-spacing:1.2px; }
 h1 {
-  min-height: 170px;
-  margin: 0;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(48px, 5.2vw, 70px);
-  line-height: 0.96;
-  letter-spacing: -2.2px;
+  min-height:170px; margin:0; font:600 clamp(48px,5.2vw,70px)/.96 "Playfair Display",Georgia,serif;
+  letter-spacing:-2.2px;
 }
-
-.hero-text {
-  min-height: 70px;
-  max-width: 650px;
-  margin: 26px 0 27px;
-  line-height: 1.65;
-  color: #b8c3d1;
+.hero-text { min-height:70px; max-width:650px; margin:26px 0 27px; line-height:1.65; color:var(--muted); }
+.hero-buttons { display:flex; gap:14px; }
+.primary-button,.secondary-button {
+  min-width:110px; min-height:43px; display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 18px; border-radius:9px; border:1px solid var(--border);
+  text-decoration:none; font-size:14px; font-weight:600;
 }
-
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-}
-
-.primary-button,
-.secondary-button {
-  min-width: 110px;
-  min-height: 43px;
-  border-radius: 9px;
-  border: 1px solid #303b49;
-  text-decoration: none;
-}
-
-.primary-button {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.secondary-button {
-  background: #10151b;
-}
-
-.courses-section {
-  padding: 0 9px 50px;
-}
-
-.section-label {
-  margin-bottom: 15px;
-  color: #667487;
-  font-family: "DM Mono", monospace;
-  font-size: 10px;
-  letter-spacing: 1.1px;
-}
-
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 13px;
-}
-
+.primary-button { background:var(--accent); border-color:var(--accent); color:#061015; }
+.secondary-button { background:var(--button-bg); color:var(--text); }
+.courses-section { padding:0 9px 50px; }
+.section-label { margin-bottom:15px; color:var(--muted); font:10px "DM Mono",monospace; letter-spacing:1.1px; }
+.course-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
 .course-card {
-  min-height: 315px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: rgba(17, 21, 26, 0.82);
+  min-height:315px; border:1px solid var(--border); border-radius:14px; background:var(--card);
 }
-
-.empty-card {
-  border-style: dashed;
-  background: transparent;
-}
-
-@media (max-width: 800px) {
-  .topbar {
-    padding-right: 12px;
-  }
-
-  .nav-link:nth-child(2),
-  .nav-link:nth-child(3) {
-    display: none;
-  }
-
-  .hero {
-    padding-top: 55px;
-  }
-
-  .course-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .course-card {
-    min-height: 220px;
-  }
+.empty-card { border-style:dashed; background:transparent; }
+@media (max-width:800px) {
+  .topbar { padding-right:12px; }
+  .nav-link:nth-child(2),.nav-link:nth-child(3) { display:none; }
+  .hero { padding-top:55px; }
+  .course-grid { grid-template-columns:1fr; }
+  .course-card { min-height:220px; }
 }
